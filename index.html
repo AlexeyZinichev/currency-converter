@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Шапка с навигацией -->
+    <header class="header">
+        <nav class="nav">
+            <button class="nav-btn" data-page="converter" id="converter-btn">Конвертер</button>
+            <button class="nav-btn" data-page="rates" id="rates-btn">Курсы</button>
+            <button class="settings-btn" id="settings-btn">⚙️</button>
+        </nav>
+    </header>
+
+    <!-- Основной контейнер приложения -->
+    <main class="app-container">
+
+        <!-- Страница 1: Конвертер -->
+        <section id="page-converter" class="page active">
+            <h1>Конвертировать валюту</h1>
+            <div class="converter-form">
+                <input type="text" id="converter-input" placeholder="Например: 15 usd in rub" autocomplete="off">
+                <div id="converter-result" class="result-box"></div>
+                <button id="swap-btn" class="swap-btn" title="Поменять валюты местами">⇅</button>
+            </div>
+        </section>
+
+        <!-- Страница 2: Курсы валют -->
+        <section id="page-rates" class="page">
+            <div class="rates-header">
+                <h1>Курсы валют</h1>
+                <div class="base-selector">
+                    <label for="base-select">Базовая валюта:</label>
+                    <select id="base-select"></select>
+                </div>
+            </div>
+            <input type="text" id="search-input" placeholder="Поиск валюты (например, USD)...">
+            <div id="rates-table-container">
+                <table id="rates-table">
+                    <thead>
+                        <tr>
+                            <th>Код</th>
+                            <th>Название</th>
+                            <th>Курс</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rates-body">
+                        <!-- Сюда вставляются курсы через JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Модальное окно настроек -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Настройки</h2>
+                <label for="default-base-select">Валюта по умолчанию:</label>
+                <select id="default-base-select"></select>
+                <div class="modal-actions">
+                    <button id="save-settings-btn">Сохранить</button>
+                    <button id="close-settings-btn">Отмена</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Подключаем скрипты -->
+    <script src="app.js" type="module"></script>
+</body>
+</html>
